@@ -11,7 +11,7 @@ public class EmployeeManagement {
         departments.add(new Department("Technology", 25));
         departments.add(new Department("Accounting", 15));
         departments.add(new Department("Human Resources", 10));
-        departments.add(new Department("Management",50));
+        departments.add(new Department("Management", 50));
 
         try {
             start(employees, departments);
@@ -167,8 +167,7 @@ public class EmployeeManagement {
 
             Employee employee = selectEmployee(employees, selection);
             updateEmployee(employee, departments);
-        }
-        catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Please enter a valid option\n");
         } catch (NoSuchElementException e) {
             System.out.println("Please enter a valid id\n");
