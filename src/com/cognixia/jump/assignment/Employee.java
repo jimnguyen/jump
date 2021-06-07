@@ -27,20 +27,20 @@ public class Employee {
         return employeeId;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
     public String getDepartment() {
         return department;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public void setDepartment(String department) {
@@ -53,6 +53,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee [ id = " + employeeId + ", name = " + name + ", salary = " + salary + ", department = " + department + "]";
+        return "id: " + this.getEmployeeId() + " | Name: " + this.getName() + " | Salary: " + this.getSalary() + " | Dept: " + this.getDepartment() + " | Start Date: " + this.getStartDate();
     }
 }

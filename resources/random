@@ -1,0 +1,4 @@
+//            // Department information
+//            String department = scan.nextLine();
+//            System.out.println("The [" + department + "] department! How exciting!\n");
+//            System.out.println(name + " has been entered into the system!\n");
