@@ -1,33 +1,30 @@
-package com.cognixia.jump.streams;
+package com.cognixia.jump.assignment;
 
-/**
- * Class Purpose - utility class (no main method)
- * 		used to stream Employees and the attributes that describe an Employee object
- *
- * Make the attributes, getters and setters, and override the .toString() method
- *
- * Can file / code to class, no need to live code.
- */
+import java.time.LocalDate;
 
 public class Employee {
-
     private static int idCounter = 1;
-
-    private final int id;
     private String name;
+    private final int employeeId;
+    private final LocalDate startDate;
     private int salary;
     private String department;
 
     public Employee(String name, int salary, String department) {
         super();
         this.name = name;
+        this.employeeId = idCounter++;
         this.salary = salary;
         this.department = department;
-        this.id = idCounter++;
+        this.startDate = LocalDate.now();
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
     }
 
     public void setName(String name) {
@@ -50,13 +47,12 @@ public class Employee {
         this.department = department;
     }
 
-    public int getId() {
-        return id;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
     @Override
     public String toString() {
-        return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", department=" + department + "]";
+        return "Employee [ id = " + employeeId + ", name = " + name + ", salary = " + salary + ", department = " + department + "]";
     }
-
 }

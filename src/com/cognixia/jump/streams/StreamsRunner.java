@@ -11,24 +11,22 @@ public class StreamsRunner {
                 .toArray(Integer[]::new);
 
         List<Integer> numbers = Arrays.asList(integers);
-
-        // For each with Method Reference
-//        System.out.println(numbers);
-//        numbers.forEach(System.out::println);
+        System.out.println(numbers);
+        numbers.forEach(System.out::println);
 
         int sum = numbers.stream().reduce(0, Integer::sum);
-//        System.out.println("Numbers sum is: " + sum);
+        System.out.println("Numbers sum is: " + sum);
 
         int biggest = numbers.stream()
                 .reduce((num1, num2) -> num1 > num2 ? num1 : num2).orElseThrow();
 
-//        System.out.println("The largest number in numbers is: " + biggest);
+        System.out.println("The largest number in numbers is: " + biggest);
 
         double avgInt = Stream.of(integers).parallel()
                 .mapToDouble(Integer::new)
                 .average().orElseThrow();
 
-//        System.out.println("The average of numbers list was: " + avgInt);
+        System.out.println("The average of numbers list was: " + avgInt);
 
         List<Employee> employees = new ArrayList<>();
 
@@ -50,17 +48,22 @@ public class StreamsRunner {
                 .filter(e -> e.getName().equals("Jai"))
                 .findFirst();
 
-//        if(tom.isPresent()) {
-//            System.out.println(tom.get());
-//        }else {
-//            System.out.println("Tom not found.");
-//        }
+        if(tom.isPresent()) {
+            System.out.println(tom.get());
+        }else {
+            System.out.println("Tom not found.");
+        }
 
         // Coding Challenges
         System.out.println("The highest paid employee is: " + getHighestPaid(employees));
         System.out.println("These are all employees that have 6 figure salaries: " + sixFigureSalaries(employees));
         System.out.println("This is the average salary: " + getAverageSalary(employees));
         System.out.println("These are all employees that have less than 100,000 salaries: " + under100k(employees));
+        System.out.println("-------------------");
+        System.out.println(employees);
+        System.out.println("-------------------");
+        removeEmployee(employees, "Daven");
+        System.out.println(employees);
     }
 
     public static Employee getHighestPaid(List<Employee> employees) {
@@ -77,5 +80,9 @@ public class StreamsRunner {
 
     static List<Employee> under100k(List<Employee> employees) {
         return employees.stream().filter(e -> e.getSalary() < 100000).toList();
+    }
+
+    public static boolean removeEmployee(List<Employee> employees, String name) {
+        return employees.removeIf(e -> e.getName().equals("Daven"));
     }
 }
